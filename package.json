@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --port=3001 --hot",
-    "build": "webpack --mode production"
+    "run": "webpack-dev-server --mode development --open --port=3001 --hot",
+    "build": "webpack --mode production",
+    "start": "concurrently \"nodemon server\" \"webpack-dev-server --mode development --open --port=3001 --hot\""
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,10 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
     "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.18.10",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"

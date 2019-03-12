@@ -4,6 +4,10 @@ import { render } from 'react-dom'
 const createElementMethod = () => createElement('div', null, 'created with React.createElement');
 
 class ComponentMethod  extends Component {
+    componentDidMount() {
+        fetch('http://localhost:2500/').then(response => response.text()).then(result => console.log(result))
+    }
+
     render() {
         return (
             <div>created with React.Component</div>

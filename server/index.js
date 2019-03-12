@@ -8,5 +8,6 @@ app.use((req, res, next) => {
   next()
 });
 
+app.get('/', (req, res) => res.send('Well, hello there'));
 
 app.listen(2500);

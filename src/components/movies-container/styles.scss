@@ -1,0 +1,47 @@
+.movies-container {
+  display: grid;
+  grid-template-columns: 200px 200px 200px;
+  grid-column-start: 2;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.movies-container-bar {
+  height: 30px;
+  background: #f5f5f5;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  display: grid;
+  grid-template-columns: 20% 30% 30%;
+  justify-content: center;
+  align-items: center;
+
+  .ant-radio + span {
+    background: transparent;
+    color: #010101;
+    text-transform: lowercase;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .ant-radio-wrapper-checked span {
+    background: transparent;
+    color: #f55362;
+  }
+}
+
+.movies-found {
+  grid-column-start: 2;
+  font-weight: 500;
+}
+
+.no-films-found {
+  grid-row-start: -30;
+  grid-column: 1 / span 3;
+  font-weight: 500;
+  font-size: 30px;
+  grid-column-start: -7;
+  margin-left: 95px;
+}

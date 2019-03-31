@@ -4,12 +4,11 @@ import { connect } from 'react-redux'
 import { Radio } from "antd";
 
 import MovieListItem from '../movie-list-item'
-import { filterMoviesList } from '../../reducers/movies'
+import { sortMoviesList } from '../../reducers/movies'
 
 import './styles.scss'
 
 const RadioGroup = Radio.Group;
-
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -23,7 +22,7 @@ class MoviesContainer extends Component {
         const { dispatch } = this.props;
         this.setState({ selectedFilter: e.target.value });
 
-        dispatch(filterMoviesList(e.target.value))
+        dispatch(sortMoviesList(e.target.value))
     };
 
     render() {
@@ -53,7 +52,6 @@ class MoviesContainer extends Component {
 
 MoviesContainer.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    // isMoviesFetching: PropTypes.bool.isRequired,
     moviesCollection: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
@@ -63,5 +61,3 @@ export default connect(
     }) => ({ moviesCollection }),
     null
 )(MoviesContainer)
-
-// export default MoviesContainer

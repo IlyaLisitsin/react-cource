@@ -29,13 +29,19 @@ import reducers from '../reducers';
 //   return store;
 // }
 
+const devtools = process.env.NODE_ENV === 'test'
+    ? x => x /* eslint-disable no-underscore-dangle */
+    : window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__();
+/* eslint-enable no-underscore-dangle */
+
 // const store = createStore(reducers, compose(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(thunk)));
 const appliedMiddlewares = applyMiddleware(thunk);
 const store = createStore(
     reducers,
     compose(
         appliedMiddlewares,
-        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+        devtools
     ),
 
 );

@@ -46,6 +46,13 @@ export function loadMoviesFulfilled(moviesCollection) {
   }
 }
 
+export function sortMoviesList(payload) {
+  return {
+    type: MOVIES_SORT,
+    payload
+  }
+}
+
 export function loadMovies(loadSettings) {
   return dispatch => {
     dispatch({ type: MOVIES_FETCH });
@@ -61,12 +68,4 @@ export function loadMovies(loadSettings) {
           dispatch({ type: MOVIES_FETCH_ERROR });
         })
   };
-}
-
-export function filterMoviesList(payload) {
-  return {
-    type: MOVIES_SORT,
-    payload
-  }
-
 }

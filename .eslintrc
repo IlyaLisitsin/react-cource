@@ -3,7 +3,9 @@
   "rules": {
     "react/jsx-filename-extension": 0,
     "import/no-extraneous-dependencies": 0,
-    "camelcase": 0
+    "camelcase": 0,
+    "import/prefer-default-export": 0,
+    "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }]
   },
   "env": {
     "browser": true,

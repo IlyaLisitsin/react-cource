@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .movies-container {
   display: grid;
   grid-template-columns: 200px 200px 200px;
@@ -10,7 +12,7 @@
 
 .movies-container-bar {
   height: 30px;
-  background: #f5f5f5;
+  background: $light-grey;
   grid-column-start: 1;
   grid-column-end: 4;
   display: grid;
@@ -28,7 +30,7 @@
 
   .ant-radio-wrapper-checked span {
     background: transparent;
-    color: #f55362;
+    color: $bright-red;
   }
 }
 

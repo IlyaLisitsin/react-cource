@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react'
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { Radio } from "antd";
+import { Radio } from 'antd';
 
 import MovieListItem from '../movie-list-item'
 import { filterMoviesList } from '../../reducers/movies'

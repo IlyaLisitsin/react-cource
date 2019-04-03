@@ -1,9 +1,11 @@
+@import '../../styles/variables.scss';
+
 footer {
   grid-area: footer;
-  background: #414141;
+  background: $dark-grey;
   grid-row-start: 4;
   font-weight: 500;
-  color: #fff;
+  color: $white;
   align-items: center;
   padding: 10px;
 }

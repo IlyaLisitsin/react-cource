@@ -1,4 +1,5 @@
 import filterMoviesCollection from '../helpers/filterMoviesCollection';
+import { getMovies } from '../config/api';
 
 const MOVIES_FETCH = 'react-cource/movies/FETCH';
 const MOVIES_FETCH_FULFILLED = 'react-cource/movies/FETCH_FULFILLED';
@@ -50,16 +51,14 @@ export function loadMovies(loadSettings) {
   return dispatch => {
     dispatch({ type: MOVIES_FETCH });
 
-    return fetch(`https://reactjs-cdp.herokuapp.com/movies`)
-        .then(response => response.json())
-        .then(({ data }) => {
-          const result = filterMoviesCollection(data, loadSettings);
-          dispatch(loadMoviesFulfilled(result))
-        })
-        .catch(error => {
-          console.warn(error);
-          dispatch({ type: MOVIES_FETCH_ERROR });
-        })
+    getMovies().then(({ data }) => {
+            const result = filterMoviesCollection(data, loadSettings);
+            dispatch(loadMoviesFulfilled(result))
+          })
+          .catch(error => {
+            console.warn(error);
+            dispatch({ type: MOVIES_FETCH_ERROR });
+          })
   };
 }
 

@@ -1,13 +1,29 @@
-// import prodStore from './configureStore.prod';
-// import devStore from './configureStore.dev';
-//
-// if (process.env.NODE_ENV === 'production') {
-//   module.exports = prodStore;
-// } else {
-//   module.exports = devStore;
-// }
+import { createStore, compose, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { createBrowserHistory } from 'history'
+
+import createRootReducer from '../reducers';
 
 
-import devStore from './configureStore.dev'
+export const history = createBrowserHistory();
+const appliedMiddlewares = applyMiddleware(thunk);
 
-export default devStore
+const isProd = process.env.NODE_ENV === 'production';
+
+export default function configureStore(preloadedState) {
+    const store = createStore(
+        createRootReducer(history),
+        preloadedState,
+        isProd ?
+            compose(
+                appliedMiddlewares,
+            ) :
+            compose(
+                appliedMiddlewares,
+                window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), // eslint-disable-line no-underscore-dangle
+            ),
+
+    );
+
+    return store
+}

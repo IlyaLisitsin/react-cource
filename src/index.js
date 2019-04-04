@@ -1,52 +1,23 @@
-import React, { Component, createElement } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
 
-import "./styles.scss"
+import configureStore, { history } from './store'
 
-const createElementMethod = () => createElement('div', null, 'created with React.createElement');
+import App from './components/app'
+import './styles.scss'
 
-class ComponentMethod extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            message: '',
-        }
-    }
-
-    componentDidMount() {
-        fetch('http://localhost:2500/')
-            .then(response => response.text())
-            .then(result => this.setState({ message: result }))
-    }
-
-    render() {
-        const { message } = this.state;
-
-        return (
-            <div>
-                <div className='red'>created with React.Component</div>
-                { message && <p>The meassage from server is <span>&quot;{ message }&quot;</span></p> }
-            </div>
-        )
-    }
-}
-
-function PureComponentMethod() {
-    return (
-        <div>created with React.PureComponent</div>
-    )
-}
-
-const FunctionalComponent = () => (
-    <div>
-        { createElementMethod() }
-        <PureComponentMethod />
-        <ComponentMethod />
-    </div>
-);
+const store = configureStore();
 
 render(
-    <FunctionalComponent />,
+    <Provider store={store}>
+        <ConnectedRouter history={history}>
+            <BrowserRouter>
+                <Route path='/:search?' component={App}/>
+            </BrowserRouter>
+        </ConnectedRouter>
+    </Provider>,
     document.getElementById('root')
 );

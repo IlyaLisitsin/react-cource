@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1554382571239" clover="3.2.0">
+  <project timestamp="1554382571239" name="All files">
+    <metrics statements="72" coveredstatements="51" conditionals="24" coveredconditionals="17" methods="29" coveredmethods="18" elements="125" coveredelements="86" complexity="0" loc="72" ncloc="72" packages="10" files="14" classes="14"/>
+    <package name="components.footer">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="footer.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\footer\footer.component.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.home">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="home.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\home\home.component.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.movie">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="movie.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movie\movie.component.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.movie-list-item">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="index.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movie-list-item\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="movie-list-item.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movie-list-item\movie-list-item.component.js">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.movies-container">
+      <metrics statements="12" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="3"/>
+      <file name="index.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movies-container\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="movies-container.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movies-container\movies-container.component.js">
+        <metrics statements="12" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="3"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="53" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.not-found">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="not-found.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\not-found\not-found.component.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.search">
+      <metrics statements="14" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
+      <file name="search.component.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\search\search.component.js">
+        <metrics statements="14" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="78" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="helpers">
+      <metrics statements="8" coveredstatements="7" conditionals="9" coveredconditionals="7" methods="3" coveredmethods="3"/>
+      <file name="filterMoviesCollection.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\helpers\filterMoviesCollection.js">
+        <metrics statements="8" coveredstatements="7" conditionals="9" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="20" type="stmt"/>
+        <line num="3" count="62" type="stmt"/>
+        <line num="4" count="20" type="cond" truecount="1" falsecount="1"/>
+        <line num="6" count="20" type="cond" truecount="2" falsecount="1"/>
+        <line num="8" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="reducers">
+      <metrics statements="25" coveredstatements="16" conditionals="9" coveredconditionals="7" methods="9" coveredmethods="4"/>
+      <file name="index.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\reducers\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="movies.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\reducers\movies.js">
+        <metrics statements="25" coveredstatements="16" conditionals="9" coveredconditionals="7" methods="9" coveredmethods="4"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="16" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="17" count="12" type="stmt"/>
+        <line num="19" count="12" type="cond" truecount="5" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="45" type="cond" truecount="1" falsecount="1"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="8" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="store">
+      <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="configureStore.dev.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\store\configureStore.dev.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="32" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+      </file>
+      <file name="index.js" path="C:\Users\Illia_Sauchuk\Projects\react-cource\src\store\index.js">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>

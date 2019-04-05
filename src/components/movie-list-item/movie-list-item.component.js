@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './styles.scss'
 
 const MoviesListItem = ({ movie: { title, release_date, genres, poster_path, id } }) => (
-    <div>
+    <div className='movies-list-item'>
         <Link to={{pathname: `/movies/${id}`}}>
             <img src={poster_path} alt={title}/>
             <div className='movie-info'>

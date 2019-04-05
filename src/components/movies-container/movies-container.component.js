@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Radio } from 'antd';
 
 import MovieListItem from '../movie-list-item'
-import { filterMoviesList } from '../../reducers/movies'
+import { sortMoviesList } from '../../reducers/movies'
 
 import './styles.scss'
 
@@ -23,7 +23,7 @@ class MoviesContainer extends Component {
         const { dispatch } = this.props;
         this.setState({ selectedFilter: e.target.value });
 
-        dispatch(filterMoviesList(e.target.value))
+        dispatch(sortMoviesList(e.target.value))
     };
 
     render() {

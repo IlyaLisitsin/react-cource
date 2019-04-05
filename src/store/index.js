@@ -9,12 +9,13 @@ export const history = createBrowserHistory();
 const appliedMiddlewares = applyMiddleware(thunk);
 
 const isProd = process.env.NODE_ENV === 'production';
+const isTest = process.env.NODE_ENV === 'test';
 
 export default function configureStore(preloadedState) {
     const store = createStore(
         createRootReducer(history),
         preloadedState,
-        isProd ?
+        isProd || isTest ?
             compose(
                 appliedMiddlewares,
             ) :

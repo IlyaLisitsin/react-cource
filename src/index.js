@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -15,7 +16,7 @@ render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <BrowserRouter>
-                <Route path='/:search?' component={App}/>
+                <Route path='/' component={App}/>
             </BrowserRouter>
         </ConnectedRouter>
     </Provider>,

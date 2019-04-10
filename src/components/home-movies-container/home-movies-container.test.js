@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 import { Provider } from 'react-redux';
 
 import createStore from '../../store'
-import MoviesContainer from './movies-container.component'
+import HomeMoviesContainer from './home-movies-container.component'
 
 // const { context } = store;
 
@@ -84,11 +84,11 @@ const moviesCollection = [
 
 const store = createStore();
 
-describe('MoviesContainer', () => {
+describe('HomeMoviesContainer', () => {
     test('receive props correctly', () => {
         const wrapper = mount(
             <Provider store={store}>
-                <MoviesContainer moviesCollection={moviesCollection} />,
+                <HomeMoviesContainer moviesCollection={moviesCollection} />,
             </Provider>
             // { context }
         );

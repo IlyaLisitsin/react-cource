@@ -1,13 +1,8 @@
 @import '../../styles/variables.scss';
 
-.movies-container {
-  display: grid;
-  grid-template-columns: 200px 200px 200px;
-  grid-column-start: 2;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  justify-content: center;
-  margin-bottom: 20px;
+.home-movies-list {
+  grid-row-start: 2;
+  margin-top: 60px;
 }
 
 .movies-container-bar {
@@ -15,6 +10,7 @@
   background: $light-grey;
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-row-start: 2;
   display: grid;
   grid-template-columns: 20% 30% 30%;
   justify-content: center;

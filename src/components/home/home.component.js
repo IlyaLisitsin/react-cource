@@ -1,11 +1,11 @@
 import React, { Fragment } from 'react'
 import Search from '../search/search.component';
-import MoviesContainer from '../movies-container';
+import HomeMoviesContainer from '../home-movies-container';
 
 const Home = () => (
     <Fragment>
         <Search />
-        <MoviesContainer />
+        <HomeMoviesContainer />
     </Fragment>
 );
 

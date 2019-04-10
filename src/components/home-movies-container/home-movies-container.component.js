@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { Radio } from 'antd';
 
-import MovieListItem from '../movie-list-item'
+// import MovieListItem from '../movie-list-item'
+import MovieListContainer from '../movie-list-container'
 import { sortMoviesList } from '../../reducers/movies'
 
 import './styles.scss'
+// import MovieListItem from "../movie-list-container/movie-list-container";
 
 const RadioGroup = Radio.Group;
 
 
-class MoviesContainer extends Component {
+class HomeMoviesContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -42,16 +44,14 @@ class MoviesContainer extends Component {
                         </RadioGroup>
                     </div>
                 </div>
-                <div className='movies-container'>
-                    {!moviesCollection.length && <div className='no-films-found'>No films found</div>}
-                    {moviesCollection.map(movie => (<MovieListItem key={movie.id} movie={movie}/>))}
-                </div>
+
+                <MovieListContainer moviesCollection={moviesCollection}/>
             </Fragment>
         )
     }
 }
 
-MoviesContainer.propTypes = {
+HomeMoviesContainer.propTypes = {
     dispatch: PropTypes.func.isRequired,
     // isMoviesFetching: PropTypes.bool.isRequired,
     moviesCollection: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -62,6 +62,6 @@ export default connect(
         movies: { moviesCollection }
     }) => ({ moviesCollection }),
     null
-)(MoviesContainer)
+)(HomeMoviesContainer)
 
-// export default MoviesContainer
+// export default HomeMoviesContainer

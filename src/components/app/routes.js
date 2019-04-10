@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import MovieDetails from '../movie-details'
+import MovieDetails from '../movie-details-page'
 import Home from '../home'
 import NotFoundPage from '../not-found'
 

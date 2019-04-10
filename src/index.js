@@ -5,7 +5,6 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { PersistGate } from 'redux-persist/integration/react'
 
-
 import configureStore, { history } from './store'
 
 import App from './components/app'

@@ -24,7 +24,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movie\movie.component.js
+SF:C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movie\movie-details-item.component.js
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
@@ -69,7 +69,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movies-container\movies-container.component.js
+SF:C:\Users\Illia_Sauchuk\Projects\react-cource\src\components\movies-container\home-movies-container.component.js
 FN:14,(anonymous_0)
 FN:21,(anonymous_1)
 FN:28,(anonymous_2)

@@ -14,3 +14,5 @@ const getApi = (url, responseHandle, errorHandle) =>
         .catch(errorHandle || defaultErrorHandle);
 
 export const getMovies = (responseHandle, errorHandle) => getApi('https://reactjs-cdp.herokuapp.com/movies', responseHandle, errorHandle);
+
+export const getMovie = (id, responseHandle, errorHandle) => getApi(`https://reactjs-cdp.herokuapp.com/movies/${id}`, responseHandle, errorHandle);

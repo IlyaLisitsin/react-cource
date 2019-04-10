@@ -16,6 +16,7 @@ const isTest = process.env.NODE_ENV === 'test';
 const persistConfig = {
     key: 'root',
     storage,
+    blacklist: ['router'],
 };
 
 const persistedReducer = persistReducer(persistConfig, createRootReducer(history))

@@ -62,7 +62,7 @@ describe('e2e tests', () => {
 
     });
 
-    // test('show movie by link', async () => {
+    // test('show movie-details-item by link', async () => {
     //     const browser = await puppeteer.launch({ headless: false });
     //
     //     const page = await browser.newPage();

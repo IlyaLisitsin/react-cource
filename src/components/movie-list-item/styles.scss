@@ -1,37 +1,39 @@
 @import '../../styles/variables.scss';
 
-img {
-  height: 300px;
-  margin-bottom: 5px;
-}
+.movie-list-item {
+  img {
+    height: 300px;
+    margin-bottom: 5px;
+  }
 
-.movie-info {
-  display: flex;
-  justify-content: space-between;
-}
+  .movie-info {
+    display: flex;
+    justify-content: space-between;
+  }
 
-h3 {
-  margin-bottom: 3px !important;
-  text-transform: uppercase;
-  font-size: 14px;
-  line-height: 16px;
-}
+  h3 {
+    margin-bottom: 3px !important;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+  }
 
-.genres {
-  color: $dirty-white;
-  font-size: 12px;
-  line-height: 14px;
-}
+  .genres {
+    color: $dirty-white;
+    font-size: 12px;
+    line-height: 14px;
+  }
 
-.date {
-  color: $light-black;
-  border: 1px solid $light-black;
-  display: inline-table;
-  padding: 0 3px;
-  font-size: 12px;
-}
+  .date {
+    color: $light-black;
+    border: 1px solid $light-black;
+    display: inline-table;
+    padding: 0 3px;
+    font-size: 12px;
+  }
 
-.title-details {
-  position: relative;
-  top: 3px;
+  .title-details {
+    position: relative;
+    top: 3px;
+  }
 }

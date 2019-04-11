@@ -8,6 +8,8 @@ import MovieDetailsItem from '../movie-details-item'
 import MovieListContainer from '../movie-list-container';
 import filterMoviesCollection from '../../helpers/filterMoviesCollection';
 
+import './styles.scss'
+
 class MovieDetailsPage extends Component {
     constructor(props) {
         super(props);
@@ -41,11 +43,16 @@ class MovieDetailsPage extends Component {
     }
 
     render() {
-        const { movie, suggestedMoviesCollection } = this.state;
+        const { movie, movie: { genres }, suggestedMoviesCollection } = this.state;
 
         return (
             <Fragment>
                 <MovieDetailsItem movie={movie} />
+                <div className='movie-details-container-bar'>
+                    <div className='movie-details-container-bar-content'>
+                        Films by {genres[0]} genre
+                    </div>
+                </div>
                 <MovieListContainer moviesCollection={suggestedMoviesCollection} />
             </Fragment>
         )

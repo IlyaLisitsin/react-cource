@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import './styles.scss'
 
 const MoviesListItem = ({ movie: { title, release_date, genres, poster_path, id } }) => (
-    <div className='movies-list-item'>
+    <div className='movie-list-item'>
         <Link to={{pathname: `/movies/${id}`}}>
             <img src={poster_path} alt={title}/>
             <div className='movie-info'>
@@ -22,7 +22,7 @@ const MoviesListItem = ({ movie: { title, release_date, genres, poster_path, id 
 );
 
 MoviesListItem.propTypes = {
-    movie: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
-}
+    movie: PropTypes.object.isRequired,
+};
 
 export default MoviesListItem

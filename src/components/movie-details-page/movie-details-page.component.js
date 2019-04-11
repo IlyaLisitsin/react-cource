@@ -28,6 +28,14 @@ class MovieDetailsPage extends Component {
     componentDidMount() {
         const { match: { params: { id } } } = this.props;
 
+        this.load(id)
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.load(nextProps.match.url.split('/movies/')[1])
+    }
+
+    load(id) {
         getMovie(id)
             .then(response => response)
             .then(result => this.setState({ movie: result }))
@@ -39,7 +47,6 @@ class MovieDetailsPage extends Component {
                         this.setState({ suggestedMoviesCollection: result })
                     })
             )
-
     }
 
     render() {

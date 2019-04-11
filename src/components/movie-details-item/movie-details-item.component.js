@@ -14,7 +14,7 @@ const MovieDetailsItem = ({ movie: { title, poster_path, vote_average, release_d
                     <Link to='../' className='back-button'>
                         <Button htmlType='submit'
                                 type='primary'
-                                >
+                        >
                             Search
                         </Button>
                     </Link>

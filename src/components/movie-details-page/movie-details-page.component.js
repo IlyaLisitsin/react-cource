@@ -32,7 +32,8 @@ class MovieDetailsPage extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.load(nextProps.match.url.split('/movies/')[1])
+        const prevId = nextProps.match.params.id;
+        this.load(prevId)
     }
 
     load(id) {
@@ -40,7 +41,7 @@ class MovieDetailsPage extends Component {
             .then(response => response)
             .then(result => this.setState({ movie: result }))
             .finally(
-                () => getMovies()
+                getMovies()
                     .then(({ data }) => {
                         const queryString = this.state.movie.genres[0];
                         const result = filterMoviesCollection(data, { queryString, selectedFilter: 'genre', idsToExclude: [Number(id)] });

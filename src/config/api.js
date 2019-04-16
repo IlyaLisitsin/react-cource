@@ -1,3 +1,5 @@
+const baseUrl = 'https://reactjs-cdp.herokuapp.com/movies';
+
 const defaultErrorHandle = ({ response }) => {
     let errorMessage = 'There has been an error. If errors continue please drop us a line.';
     if (response && response.data && response.data.message) {
@@ -13,6 +15,6 @@ const getApi = (url, responseHandle, errorHandle) =>
         .then(responseHandle || defaultResponseHandle)
         .catch(errorHandle || defaultErrorHandle);
 
-export const getMovies = (responseHandle, errorHandle) => getApi('https://reactjs-cdp.herokuapp.com/movies', responseHandle, errorHandle);
+export const getMovies = (responseHandle, errorHandle) => getApi(baseUrl, responseHandle, errorHandle);
 
-export const getMovie = (id, responseHandle, errorHandle) => getApi(`https://reactjs-cdp.herokuapp.com/movies/${id}`, responseHandle, errorHandle);
+export const getMovie = (id, responseHandle, errorHandle) => getApi(`${baseUrl}/${id}`, responseHandle, errorHandle);

@@ -1,19 +1,19 @@
-/* eslint-disable */
-
 import React from 'react';
 import { Button } from 'antd';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import { Link } from 'react-router-dom';
 
 import './styles.scss'
 
-const MovieDetailsItem = ({ movie: { title, poster_path, vote_average, release_date, runtime, overview } }) => {
+const MovieDetailsItem = ({ movie: { title, poster_path, vote_average, release_date, runtime, overview }, history: { push } }) => {
     return (
             <div className='movie-details-container'>
                 <div className='movie-details-item'>
                     <Link to='../' className='back-button'>
                         <Button htmlType='submit'
                                 type='primary'
+                                onClick={() => push('/')}
                         >
                             Search
                         </Button>
@@ -40,6 +40,7 @@ const MovieDetailsItem = ({ movie: { title, poster_path, vote_average, release_d
 
 MovieDetailsItem.propTypes = {
     movie: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
 };
 
-export default MovieDetailsItem
+export default withRouter(MovieDetailsItem);

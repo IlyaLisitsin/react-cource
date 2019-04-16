@@ -1,0 +1,17 @@
+@import '../../styles/variables';
+
+.movie-details-container-bar {
+  height: 30px;
+  grid-column: unset;
+  background: $light-grey;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  font-weight: 500;
+  color: $dark-grey;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 200px 200px 200px;
+  justify-content: center;
+  grid-column-gap: 20px;
+}

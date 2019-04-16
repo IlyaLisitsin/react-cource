@@ -62,7 +62,7 @@ export function loadMovies(loadSettings) {
   };
 }
 
-export function filterMoviesList(payload) {
+export function sortMoviesList(payload) {
   return {
     type: MOVIES_SORT,
     payload

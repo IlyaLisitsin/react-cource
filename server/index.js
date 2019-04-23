@@ -1,13 +1,17 @@
-const express = require('express');
+require.extensions['.scss'] = () => {};
+require.extensions['.less'] = () => {};
+require.extensions['.css'] = () => {};
 
-const app = express();
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", 'GET, POST, PUT, DELETE, OPTIONS');
-  next()
-});
+// require('@babel/register')({
+//   babelrc: false,
+//   presets: ['@babel/preset-env', '@babel/preset-react'],
+//   plugins: ['@babel/plugin-proposal-class-properties'],
+// });
 
-app.get('/', (req, res) => res.send('Well, hello there'));
+require('@babel/register')();
 
-app.listen(2500);
+// require( 'babel-register' )( {
+//   presets: [ 'env' ],
+// } );
+//
+require('./server');

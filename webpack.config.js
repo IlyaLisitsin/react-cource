@@ -5,11 +5,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
 
 const publicPath = resolve(__dirname, '/public');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = {
+    entry: `${__dirname}/src/index.js`,
     output: {
         path: publicPath,
         publicPath: isProd ? './' : '/',
@@ -30,6 +32,11 @@ module.exports = {
             chunks: 'async'
         }
     },
+    resolve: {
+        alias: {
+            'react-dom': '@hot-loader/react-dom'
+        }
+    },
     module: {
         rules: [
             {
@@ -40,7 +47,7 @@ module.exports = {
                         loader: 'babel-loader',
                         options: {
                             presets: ['@babel/preset-env', '@babel/preset-react'],
-                            plugins: ['@babel/plugin-proposal-class-properties']
+                            plugins: ['@babel/plugin-proposal-class-properties', 'react-hot-loader/babel']
                         },
                     },
                     'eslint-loader'
@@ -92,6 +99,7 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
+        hot: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -100,6 +108,7 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: './index.html',
             filename: './index.html'
-        })
+        }),
+        !isProd && new webpack.HotModuleReplacementPlugin(),
     ],
 };

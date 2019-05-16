@@ -5,7 +5,7 @@
   "scripts": {
     "run": "webpack-dev-server --mode development --open --port=3001 --hot",
     "build": "webpack --mode production",
-    "start": "concurrently \"nodemon server\" \"webpack-dev-server --mode development --open --port=3001 --hot\"",
+    "start": "concurrently \"nodemon server\" \"webpack-dev-server --mode development --port=3001\"",
     "test": "jest"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
+    "@hot-loader/react-dom": "^16.8.6",
     "autoprefixer": "^9.4.10",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.5",
@@ -73,6 +74,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
+    "react-hot-loader": "^4.8.5",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",

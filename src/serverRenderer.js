@@ -1,47 +1,37 @@
-import React from 'react';
+/* eslint-disable */
+import React from 'react'
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
+import StyleContext from 'isomorphic-style-loader/StyleContext'
 
-import Root from './Root';
+import Root from './Root'
 
-function renderHTML(html) {
-  return `
-      <!doctype html>
-      <html>
-        <head>
-          <meta charset=utf-8>
-          <title>React Server Side Rendering</title>
-        </head>
-        <body>
-          <div id="root">${html}</div>
-          <script src="/js/main.js"></script>
-        </body>
-      </html>
-  `;
-}
+const css = new Set();
+const insertCss = (...styles) => styles.forEach(style => css.add(style._getCss()))
+const renderHtml = (html) => `<!doctype html>
+<html>
+    <head>
+        <style>${[...css].join('')}</style>
+    </head>
+    <body>
+        <div id="root">${html}</div>
+    </body>
+</html>`
+
 
 export default function serverRenderer() {
+
   return (req, res) => {
+    const context = {}
 
-    const context = {};
-
-    const root = (
-        <Root
-            context={context}
-            location={req.url}
-            Router={StaticRouter}
-        />
+    const html = renderToString(
+        <StaticRouter location={req.url} context={context}>
+          <StyleContext.Provider value={{ insertCss }}>
+            <Root />
+          </StyleContext.Provider>
+        </StaticRouter>
     );
 
-    const htmlString = renderToString(root);
-
-    if (context.url) {
-      res.writeHead(302, {
-        Location: context.url,
-      });
-      res.end();
-      return;
-    }
-    res.send(renderHTML(htmlString));
-  };
+    res.send(renderHtml(html))
+  }
 }

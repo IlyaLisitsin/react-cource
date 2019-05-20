@@ -65,8 +65,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 loader: [
-                    isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    // isDevMod ? 'isomorphic-style-loader' : MiniCssExtractPlugin.loader,
+                    isDevMod ? 'isomorphic-style-loader' : MiniCssExtractPlugin.loader,
 
                     {
                         loader: 'css-loader',

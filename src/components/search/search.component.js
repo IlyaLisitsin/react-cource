@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import 'isomorphic-fetch';
-
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Radio, Icon, Input, Button } from 'antd';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router';
-import withStyles from 'isomorphic-style-loader/withStyles'
 
 import { loadMovies as loadMoviesDispatcher} from '../../reducers/movies';
 
-import styles from  './styles.scss'
+import './styles.scss'
 
 const pathStringNormalizer = pathString => pathString.substring(1).split('&').reduce((acc, next) => {
     next = next.split('='); // eslint-disable-line no-param-reassign
@@ -67,8 +64,8 @@ class Search extends Component {
 
         return (
             <header>
-                <div className={styles.headerWrapper}>
-                    <h2 className={styles.h2}>Find your movie</h2>
+                <div className='header-wrapper'>
+                    <h2>Find your movie</h2>
                     <Input
                         addonAfter={<Icon type='rollback' />}
                         defaultValue='Type something'
@@ -76,9 +73,9 @@ class Search extends Component {
                         onChange={this.onTextChange}
                     />
 
-                    <div className={styles.headerBottom}>
+                    <div className='header-bottom'>
                         <RadioGroup onChange={this.onFilterChange} value={selectedFilter}>
-                            <span className={styles.searchBy}>Search by</span>
+                            <span className='search-by'>Search by</span>
                             <Radio value='title'>Title</Radio>
                             <Radio value='genre'>Genre</Radio>
                         </RadioGroup>
@@ -104,11 +101,9 @@ Search.propTypes = {
     history: PropTypes.object.isRequired,
 };
 
-// export default withRouter(connect(
-//     ({
-//          movies: { isMoviesFetching },
-//          router: { location },
-//      }) => ({ isMoviesFetching, location }),
-// )(Search));
-
-export default withRouter(withStyles(styles)(Search))
+export default withRouter(connect(
+    ({
+         movies: { isMoviesFetching },
+         router: { location },
+     }) => ({ isMoviesFetching, location }),
+)(Search));

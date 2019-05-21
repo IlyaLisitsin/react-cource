@@ -66,7 +66,6 @@ module.exports = {
                 test: /\.scss$/,
                 loader: [
                     isDevMod ? 'isomorphic-style-loader' : MiniCssExtractPlugin.loader,
-
                     {
                         loader: 'css-loader',
                         options: {
@@ -82,7 +81,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 use:  [
-                    isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    isDevMod ? 'isomorphic-style-loader' : MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {

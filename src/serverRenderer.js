@@ -22,7 +22,7 @@ const renderHtml = (html) => `<!doctype html>
 export default function serverRenderer() {
 
   return (req, res) => {
-    const context = {}
+    const context = {};
 
     const html = renderToString(
         <StaticRouter location={req.url} context={context}>
@@ -31,6 +31,10 @@ export default function serverRenderer() {
           </StyleContext.Provider>
         </StaticRouter>
     );
+
+      if (context.url) {
+          return res.redirect(301, context.url);
+      }
 
     res.send(renderHtml(html))
   }

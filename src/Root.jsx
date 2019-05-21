@@ -1,24 +1,37 @@
+/* eslint-disable */
+
 import 'isomorphic-fetch';
 import 'babel-polyfill';
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, BrowserRouter, Link } from 'react-router-dom';
 import withStyles from 'isomorphic-style-loader/withStyles'
 
-import styles from './styles.scss'
+import { withRouter } from 'react-router';
 
-const Home = () => <div>Home</div>
-const Users = () => <div>Users</div>
+
+// import App from './components/app'
+
+import styles from './styles.scss'
+import MovieDetails from "./components/movie-details-page";
+import NotFoundPage from "./components/not-found";
+import Search from './components/search'
+
+const Test = (props) => <div>Test: {JSON.stringify(props)}</div>
+const Mest = () => <div>yepo <Link to='/lol'>Liiink</Link><ul><Route path='/lol' component={Test} /></ul></div>
 
 const Root = () => (
     <Fragment>
-        <h1 className={styles.red}>css modules</h1>
         <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/users" component={Users} />
-            <Redirect to="/" />
+            {/*<Route path="/" component={Search} />*/}
+            {/*<Route path="/" component={withRouter(Test)} />*/}
+            <Route path="/" component={Mest} />
+            {/*<Route path='/movies/:id' component={MovieDetails} />*/}
+            <Route component={NotFoundPage} />
         </Switch>
     </Fragment>
 )
 
 export default hot(module)(withStyles(styles)(Root));
+// export default withStyles(styles)(Root);
+// export default Root;

@@ -82,13 +82,8 @@ module.exports = {
             {
                 test: /\.less$/,
                 use:  [
-                    isDevMod ? 'style-loader' : MiniCssExtractPlugin.loader,
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                        }
-                    },
+                    isDevMod ? 'isomorphic-style-loader' : MiniCssExtractPlugin.loader,
+                    'css-loader',
                     ...(isProd ?
                         [{
                             loader: 'postcss-loader',

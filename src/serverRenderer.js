@@ -3,8 +3,9 @@ import React from 'react'
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
 import StyleContext from 'isomorphic-style-loader/StyleContext'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux';
+
+import configureStore from './configureStore'
 
 import Root from './Root'
 
@@ -23,57 +24,50 @@ const renderHtml = (html, preloadedState) => `<!doctype html>
     </script>
 </html>`
 
-import createRootReducer from './reducers';
-
-
 export default function serverRenderer() {
 
   return (req, res) => {
-    // const context = {
-    //     location: {
-    //         hash: "",
-    //         pathname: "/",
-    //         search: "",
-    //         state: undefined,
-    //     },
-    //     match: {
-    //         isExact: true,
-    //         params: {},
-    //         path: "/",
-    //         url: "/",
-    //     }
-    // };
-
       const context = {};
+      const store = configureStore();
 
-      const store = createStore(
-          createRootReducer()
+      console.log(213321231, store.runSaga())
+
+      store.runSaga().done.then(() => {
+
+          console.log('I AM HEEREE')
+          const html = renderToString(
+              <Provider store={store}>
+                  <StaticRouter location={req.url} context={context}>
+                      <StyleContext.Provider value={{ insertCss }}>
+                          <Root />
+                      </StyleContext.Provider>
+                  </StaticRouter>
+              </Provider>
+          );
+
+          if (context.url) {
+              res.writeHead(302, {
+                  Location: context.url,
+              });
+              res.end();
+              return;
+          }
+
+          const preloadedState = store.getState();
+
+          res.send(renderHtml(html, preloadedState));
+      });
+
+      renderToString(
+          <Provider store={store}>
+              <StaticRouter location={req.url} context={context}>
+                  <StyleContext.Provider value={{ insertCss }}>
+                      <Root />
+                  </StyleContext.Provider>
+              </StaticRouter>
+          </Provider>
       );
 
-      // renderToString(
-      //     <Provider store={store}>
-      //         <StaticRouter location={req.url} context={context}>
-      //             <StyleContext.Provider value={{ insertCss }}>
-      //                 <Root />
-      //             </StyleContext.Provider>
-      //         </StaticRouter>
-      //     </Provider>
-      // );
-
-      const html = renderToString(
-        <Provider store={store}>
-            <StaticRouter location={req.url} context={context}>
-              <StyleContext.Provider value={{ insertCss }}>
-                <Root />
-              </StyleContext.Provider>
-            </StaticRouter>
-        </Provider>
-    );
-
-      const preloadedState = store.getState()
-      // console.log('PRELOADED STATE', preloadedState)
-
-
-      res.send(renderHtml(html, preloadedState))
+      store.close();
   }
 }

@@ -2,7 +2,7 @@
 
 import 'isomorphic-fetch';
 import 'babel-polyfill';
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { hot } from 'react-hot-loader';
 import {Route, Switch, Redirect, Link} from 'react-router-dom';
 import withStyles from 'isomorphic-style-loader/withStyles'
@@ -14,33 +14,25 @@ import ant from './styles/ant/index.less'
 import styles from './styles.scss'
 
 import Footer from "./components/footer/footer.component";
-import { testIncrement, startFetch } from "./reducers/test";
+import { increment, fetchUsers } from "./reducers/test";
 
-const Home = () => <div>Home <Link to='/users'>Go to useers</Link></div>
-const Users = () => <div>Users <Link to='../'><Button htmlType='submit' type='danger'>Faaa</Button></Link></div>
+const Home = () => (<div>Home <Link to='/users'>Go to useers</Link></div>)
+const Users = connect(({ test: { isFetch, users }}) => ({ isFetch, users }), ({ fetchUsers }))(({ isFetch, users, fetchUsers }) => {
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
+    return (
+        <div>
+            <h2>Users Page</h2>
+            {isFetch && <h2>Loading!</h2>}
+            {users.map(el => <li key={el.id}>{el.name}</li>)}
+        </div>
+    );
+});
+
 const Increment = connect(({ test: { increment }}) => ({ increment }))(({ increment }) => <h1>{increment}</h1>)
-
-class FetchIndicator extends Component {
-    constructor(props) {
-        super(props)
-    }
-
-    // componentDidMount() {
-    //     console.log('Component did mount', this.props)
-    //     this.props.startFetch()
-    // }
-
-    componentWillMount() {
-        console.log('Component will mount', this.props)
-        this.props.startFetch()
-    }
-
-    render() {
-        return (<h2>{JSON.stringify(this.props.isFetch)}<Button htmlType='submit' type='primary' onClick={this.props.testIncrement}>Click</Button></h2>)
-    }
-}
-
-const FetchIndicatorConnected = connect(({ test: { isFetch } }) => ({ isFetch }), ({ startFetch, testIncrement}))(FetchIndicator)
+const FetchIndicator = connect(({ test: { isFetch, users }}) => ({ isFetch, users }), ({ increment }))(({ isFetch, increment }) => <h2>{JSON.stringify(isFetch)}<Button htmlType='submit' type='primary' onClick={increment}>Click</Button></h2>)
 
 const RadioGroup = Radio.Group;
 
@@ -56,13 +48,14 @@ const Root = () => (
             <Radio value='genre'>Genre</Radio>
         </RadioGroup>
         <Increment />
-        <FetchIndicatorConnected />
+        <FetchIndicator />
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/users" component={Users} />
             <Redirect to="/" />
         </Switch>
         <Footer />
+
     </Fragment>
 )
 

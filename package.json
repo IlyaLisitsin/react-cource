@@ -36,11 +36,13 @@
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
     "redux-promise-middleware": "^6.1.0",
+    "redux-saga": "^1.0.2",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-transform-regenerator": "^7.4.5",
     "@babel/preset-env": "^7.4.2",
     "@babel/register": "^7.4.0",
     "@hot-loader/react-dom": "^16.8.6",

@@ -5,25 +5,16 @@ import ReactDOM from 'react-dom'
 import StyleContext from 'isomorphic-style-loader/StyleContext'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import thunkMiddleware from 'redux-thunk';
-
 
 import Root from './Root'
+import configureStore from "./configureStore";
 
 const insertCss = (...styles) => {
     const removeCss = styles.map(style => style._insertCss())
     return () => removeCss.forEach(dispose => dispose())
 }
 
-
-import createRootReducer from './reducers';
-
-const store = createStore(
-    createRootReducer(),
-    window.__PRELOADED_STATE__,
-    applyMiddleware(thunkMiddleware)
-);
+const store = configureStore(window.__PRELOADED_STATE__);
 
 ReactDOM.hydrate(
     <Provider store={store}>

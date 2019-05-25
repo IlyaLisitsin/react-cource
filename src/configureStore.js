@@ -20,21 +20,18 @@ function* rootSaga() {
 
 const sagaMiddleware = createSagaMiddleware();
 
-export default (preloadedState) => {
+// export default (preloadedState) => {
+export default () => {
+
     const store = createStore(
         createRootReducer(),
-        preloadedState,
+        // preloadedState,
         applyMiddleware(sagaMiddleware)
     );
 
     sagaMiddleware.run(rootSaga);
-
-    console.log(23432, sagaMiddleware.run(rootSaga).done)
     store.runSaga = () => sagaMiddleware.run(rootSaga);
-    store.close = () => {
-        console.log('llldsaldsaldsa')
-        return store.dispatch(END)
-    };
+    store.close = () => store.dispatch(END);
 
     return store;
 };

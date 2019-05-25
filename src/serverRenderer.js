@@ -22,6 +22,7 @@ const renderHtml = (html, preloadedState) => `<!doctype html>
     <script>
       window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\u003c')}
     </script>
+    <script src="/js/main.js"></script>
 </html>`
 
 export default function serverRenderer() {
@@ -30,11 +31,9 @@ export default function serverRenderer() {
       const context = {};
       const store = configureStore();
 
-      console.log(213321231, store.runSaga())
-
       store.runSaga().done.then(() => {
 
-          console.log('I AM HEEREE')
+          console.log('Saga dun finished')
           const html = renderToString(
               <Provider store={store}>
                   <StaticRouter location={req.url} context={context}>
@@ -45,28 +44,28 @@ export default function serverRenderer() {
               </Provider>
           );
 
-          if (context.url) {
-              res.writeHead(302, {
-                  Location: context.url,
-              });
-              res.end();
-              return;
-          }
+          // if (context.url) {
+          //     res.writeHead(302, {
+          //         Location: context.url,
+          //     });
+          //     res.end();
+          //     return;
+          // }
 
           const preloadedState = store.getState();
 
           res.send(renderHtml(html, preloadedState));
       });
 
-      renderToString(
-          <Provider store={store}>
-              <StaticRouter location={req.url} context={context}>
-                  <StyleContext.Provider value={{ insertCss }}>
-                      <Root />
-                  </StyleContext.Provider>
-              </StaticRouter>
-          </Provider>
-      );
+      // renderToString(
+      //     <Provider store={store}>
+      //         <StaticRouter location={req.url} context={context}>
+      //             <StyleContext.Provider value={{ insertCss }}>
+      //                 <Root />
+      //             </StyleContext.Provider>
+      //         </StaticRouter>
+      //     </Provider>
+      // );
 
       store.close();
   }

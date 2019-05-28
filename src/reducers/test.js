@@ -15,7 +15,7 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
     const { type, payload } = action;
 
-    console.log('TYPE', type)
+    console.log('TYPE', type, payload)
 
     switch (type) {
         case FETCH_USERS:

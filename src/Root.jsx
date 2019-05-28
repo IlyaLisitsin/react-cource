@@ -25,6 +25,10 @@ const Users = connect(({ test: { isFetch, users }}) => ({ isFetch, users }), ({ 
     return (
         <div>
             <h2>Users Page</h2>
+            <button onClick={() => {
+                // console.log(window.location)
+                // window.location = 'haha'
+            }}>Hahahah</button>
             {isFetch && <h2>Loading!</h2>}
             {users.map(el => <li key={el.id}>{el.name}</li>)}
         </div>
@@ -33,28 +37,34 @@ const Users = connect(({ test: { isFetch, users }}) => ({ isFetch, users }), ({ 
 
 const Increment = connect(({ test: { increment }}) => ({ increment }))(({ increment }) => <h1>{increment}</h1>)
 const FetchIndicator = connect(({ test: { isFetch, users }}) => ({ isFetch, users }), ({ increment }))(({ isFetch, increment }) => <h2>{JSON.stringify(isFetch)}<Button htmlType='submit' type='primary' onClick={increment}>Click</Button></h2>)
+const Haha = () => <div>Hahahahahahahahah</div>
 
 const RadioGroup = Radio.Group;
 
+import App from './components/app'
+
 const Root = () => (
     <Fragment>
-    <h1 className={styles.red}>css modules</h1>
-        <Input
-            addonAfter={<Icon type='rollback' />}
-            defaultValue='Type something'
-        />
-        <RadioGroup>
-            <Radio value='title'>Title</Radio>
-            <Radio value='genre'>Genre</Radio>
-        </RadioGroup>
-        <Increment />
-        <FetchIndicator />
-        <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/users" component={Users} />
-            <Redirect to="/" />
-        </Switch>
-        <Footer />
+    {/*<h1 className={styles.red}>css modules</h1>*/}
+    {/*    <Input*/}
+    {/*        addonAfter={<Icon type='rollback' />}*/}
+    {/*        defaultValue='Type something'*/}
+    {/*    />*/}
+    {/*    <RadioGroup>*/}
+    {/*        <Radio value='title'>Title</Radio>*/}
+    {/*        <Radio value='genre'>Genre</Radio>*/}
+    {/*    </RadioGroup>*/}
+    {/*    <Increment />*/}
+    {/*    <FetchIndicator />*/}
+    {/*    <Switch>*/}
+    {/*        <Route exact path="/" component={Home} />*/}
+    {/*        <Route path="/users" component={Users} />*/}
+    {/*        <Route path="/haha" component={Haha} />*/}
+    {/*        <Redirect to="/" />*/}
+    {/*    </Switch>*/}
+    {/*    <Footer />*/}
+
+    <App />
 
     </Fragment>
 )

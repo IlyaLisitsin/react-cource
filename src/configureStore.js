@@ -10,11 +10,15 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware, { END } from 'redux-saga';
 
 import createRootReducer from './reducers';
+
+// TODO: move to index
 import { usersSaga } from "./reducers/test";
+import { moviesSaga } from "./reducers/movies";
 
 function* rootSaga() {
     yield all([
         usersSaga(),
+        moviesSaga(),
     ]);
 }
 

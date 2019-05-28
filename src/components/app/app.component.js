@@ -1,29 +1,20 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/withStyles'
 
 import Routes from './routes';
 import Footer from '../footer';
 
-import Test from '../test'
-
-import 'antd/es/style/index.less'
-import 'antd/lib/radio/style/index.less'
-import 'antd/lib/input/style/index.less'
-import 'antd/lib/button/style/index.less'
-
-import './styles.scss'
+import styles from './styles.scss'
 
 import ErrorBoundary from '../error-boundary'
 
-console.log(324324, Test)
-
 const App = () => (
     <ErrorBoundary>
-        <div className='container'>
+        <div className={styles.container}>
             <Routes />
             <Footer />
-            <Test />
         </div>
     </ErrorBoundary>
 );
 
-export default App;
+export default withStyles(styles)(App);

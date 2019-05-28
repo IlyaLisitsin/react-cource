@@ -6,24 +6,22 @@ import createSagaMiddleware, { END } from 'redux-saga';
 import createRootReducer from './reducers';
 
 // TODO: move to index
-import { usersSaga } from './reducers/test';
 import { moviesSaga } from './reducers/movies';
 
 function* rootSaga() {
     yield all([
-        usersSaga(),
         moviesSaga(),
     ]);
 }
 
 const sagaMiddleware = createSagaMiddleware();
+const appliedMiddlewares = applyMiddleware(sagaMiddleware)
 
-// export default (preloadedState) => {
-export default () => {
+export default (preloadedState) => {
     const store = createStore(
         createRootReducer(),
-        // preloadedState,
-        applyMiddleware(sagaMiddleware)
+        preloadedState,
+        appliedMiddlewares,
     );
 
     sagaMiddleware.run(rootSaga);

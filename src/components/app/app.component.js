@@ -22,5 +22,4 @@ App.propTypes = {
     router: PropTypes.object.isRequired,
 };
 
-
 export default withStyles(styles)(App);

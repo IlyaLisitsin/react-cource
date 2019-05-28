@@ -4,15 +4,12 @@ import { connect } from 'react-redux'
 import { Radio } from 'antd';
 import withStyles from 'isomorphic-style-loader/withStyles'
 
-// import MovieListItem from '../movie-list-item'
 import MovieListContainer from '../movie-list-container'
 import { sortMoviesList } from '../../reducers/movies'
 
 import styles from './styles.scss'
-// import MovieListItem from "../movie-list-container/movie-list-container";
 
 const RadioGroup = Radio.Group;
-
 
 class HomeMoviesContainer extends Component {
     constructor(props) {
@@ -35,8 +32,8 @@ class HomeMoviesContainer extends Component {
 
         return (
             <Fragment>
-                <div className={styles.moviesContainerBar}>
-                    <div className={styles.moviesFound}>{moviesCollection.length} movies found</div>
+                <div className={styles['movies-container-bar']}>
+                    <div className={styles['movies-found']}>{moviesCollection.length} movies found</div>
                     <div>
                         <span>Sort by:</span>
                         <RadioGroup onChange={this.onFilterChange} value={selectedFilter}>
@@ -54,7 +51,6 @@ class HomeMoviesContainer extends Component {
 
 HomeMoviesContainer.propTypes = {
     dispatch: PropTypes.func.isRequired,
-    // isMoviesFetching: PropTypes.bool.isRequired,
     moviesCollection: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 

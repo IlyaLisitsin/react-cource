@@ -40,7 +40,7 @@ function Search({ isMoviesFetching, loadMovies, router }) {
                     onChange={e => setQueryString(e.target.value)}
                 />
 
-                <div className={styles.headerBottom}>
+                <div className={styles['header-bottom']}>
                     <RadioGroup onChange={e => setSelectedFilter(e.target.value)} value={selectedFilter}>
                         <span className={styles['search-by']}>Search by</span>
                         <Radio value='title'>Title</Radio>

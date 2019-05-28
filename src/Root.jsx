@@ -43,30 +43,8 @@ const RadioGroup = Radio.Group;
 
 import App from './components/app'
 
-const Root = () => (
-    <Fragment>
-    {/*<h1 className={styles.red}>css modules</h1>*/}
-    {/*    <Input*/}
-    {/*        addonAfter={<Icon type='rollback' />}*/}
-    {/*        defaultValue='Type something'*/}
-    {/*    />*/}
-    {/*    <RadioGroup>*/}
-    {/*        <Radio value='title'>Title</Radio>*/}
-    {/*        <Radio value='genre'>Genre</Radio>*/}
-    {/*    </RadioGroup>*/}
-    {/*    <Increment />*/}
-    {/*    <FetchIndicator />*/}
-    {/*    <Switch>*/}
-    {/*        <Route exact path="/" component={Home} />*/}
-    {/*        <Route path="/users" component={Users} />*/}
-    {/*        <Route path="/haha" component={Haha} />*/}
-    {/*        <Redirect to="/" />*/}
-    {/*    </Switch>*/}
-    {/*    <Footer />*/}
-
-    <App />
-
-    </Fragment>
+const Root = ({ router }) => (
+    <App router={router} />
 )
 
 export default hot(module)(withStyles(styles, ant)(Root));

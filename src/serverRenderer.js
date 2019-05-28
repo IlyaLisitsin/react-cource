@@ -31,14 +31,15 @@ export default function serverRenderer() {
       const context = {};
       const store = configureStore();
 
+      console.log('REQ URL', req.url)
+
       store.runSaga().done.then(() => {
 
-          console.log('Saga dun finished')
           const html = renderToString(
               <Provider store={store}>
                   <StaticRouter location={req.url} context={context}>
                       <StyleContext.Provider value={{ insertCss }}>
-                          <Root />
+                          <Root router={req.url}/>
                       </StyleContext.Provider>
                   </StaticRouter>
               </Provider>

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
@@ -31,8 +30,6 @@ export default function serverRenderer() {
       const context = {};
       const store = configureStore();
 
-      console.log('REQ URL', req.url)
-
       store.runSaga().done.then(() => {
 
           const html = renderToString(
@@ -45,28 +42,19 @@ export default function serverRenderer() {
               </Provider>
           );
 
-          // if (context.url) {
-          //     res.writeHead(302, {
-          //         Location: context.url,
-          //     });
-          //     res.end();
-          //     return;
-          // }
+          // For redirect
+          if (context.url) {
+              res.writeHead(302, {
+                  Location: context.url,
+              });
+              res.end();
+              return;
+          }
 
           const preloadedState = store.getState();
 
           res.send(renderHtml(html, preloadedState));
       });
-
-      // renderToString(
-      //     <Provider store={store}>
-      //         <StaticRouter location={req.url} context={context}>
-      //             <StyleContext.Provider value={{ insertCss }}>
-      //                 <Root />
-      //             </StyleContext.Provider>
-      //         </StaticRouter>
-      //     </Provider>
-      // );
 
       store.close();
   }

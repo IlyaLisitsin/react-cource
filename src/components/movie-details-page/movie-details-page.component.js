@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import withStyles from 'isomorphic-style-loader/withStyles'
 
 import { getMovie, getMovies } from '../../config/api';
 
@@ -8,7 +9,7 @@ import MovieDetailsItem from '../movie-details-item'
 import MovieListContainer from '../movie-list-container';
 import filterMoviesCollection from '../../helpers/filterMoviesCollection';
 
-import './styles.scss'
+import styles from './styles.scss'
 
 class MovieDetailsPage extends Component {
     constructor(props) {
@@ -56,8 +57,8 @@ class MovieDetailsPage extends Component {
         return (
             <Fragment>
                 <MovieDetailsItem movie={movie} />
-                <div className='movie-details-container-bar'>
-                    <div className='movie-details-container-bar-content'>
+                <div className={styles['movie-details-container-bar']}>
+                    <div className={styles['movie-details-container-bar-content']}>
                         Films by {genres[0]} genre
                     </div>
                 </div>
@@ -74,4 +75,4 @@ MovieDetailsPage.propTypes = {
 export default connect(
     null,
     null,
-)(MovieDetailsPage);
+)(withStyles(styles)(MovieDetailsPage));

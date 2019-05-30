@@ -1,37 +1,4 @@
-.ant-radio + span {
-  background: #787878;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 2px 12px;
-  cursor: pointer;
-}
-
-.ant-radio-wrapper-checked span {
-  background: #f55362;
-}
-
-.ant-radio-inner {
-  display: none !important;
-}
-
-.ant-btn.ant-btn-primary {
-  text-transform: uppercase;
-  font-weight: 500;
-  background: #f55362;
-  border-color: #f55362;
-}
-
-.ant-btn-primary:hover, .ant-btn-primary:focus {
-  background-color: #f55362 !important;
-  border-color: #f55362 !important;
-}
-
-.ant-input-group-wrapper{
-  margin-bottom: 5px;
-}
-
-header {
+.header {
   grid-area: header;
   background-image: url(https://s0.rbk.ru/v6_top_pics/resized/1440xH/media/img/1/40/755198060565401.png);
   background-size: cover;
@@ -40,9 +7,42 @@ header {
   grid-template-rows: auto 1fr auto;
   padding-top: 30px;
   padding-bottom: 30px;
+
+  :global(.ant-radio + span ) {
+    background: #787878;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 2px 12px;
+    cursor: pointer;
+  }
+
+  :global(.ant-radio-wrapper-checked span) {
+    background: #f55362;
+  }
+
+  :global(.ant-radio-inner) {
+    display: none !important;
+  }
+
+  :global(.ant-btn.ant-btn-primary) {
+    text-transform: uppercase;
+    font-weight: 500;
+    background: #f55362;
+    border-color: #f55362;
+  }
+
+  :global(.ant-btn-primary:hover, .ant-btn-primary:focus) {
+    background-color: #f55362 !important;
+    border-color: #f55362 !important;
+  }
+
+  :global(.ant-input-group-wrapper) {
+    margin-bottom: 5px;
+  }
 }
 
-h2 {
+.h2 {
   color: #fff !important;
   text-transform: uppercase;
   font-size: 16px

@@ -1,7 +1,8 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/withStyles'
 
-import './style.scss'
+import styles from './style.scss'
 
 const Footer = () => (<footer><span>Footer</span></footer>);
 
-export default Footer;
+export default withStyles(styles)(Footer);

@@ -1,24 +1,25 @@
 import React from 'react';
+import withStyles from 'isomorphic-style-loader/withStyles'
+import PropTypes from 'prop-types';
 
 import Routes from './routes';
 import Footer from '../footer';
 
-import 'antd/es/style/index.less'
-import 'antd/lib/radio/style/index.less'
-import 'antd/lib/input/style/index.less'
-import 'antd/lib/button/style/index.less'
-
-import './styles.scss'
+import styles from './styles.scss'
 
 import ErrorBoundary from '../error-boundary'
 
-const App = () => (
+const App = ({ router }) => (
     <ErrorBoundary>
-        <div className='container'>
-            <Routes />
+        <div className={styles.container}>
+            <Routes router={router} />
             <Footer />
         </div>
     </ErrorBoundary>
 );
 
-export default App;
+App.propTypes = {
+    router: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(App);

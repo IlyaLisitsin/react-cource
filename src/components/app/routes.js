@@ -7,7 +7,7 @@ import NotFoundPage from '../not-found'
 
 const Routes = () => (
     <Switch>
-        <Route exact path="/:search?" component={Home} />
+        <Route exact path="/:search?" render={router => <Home router={router}/>} />
         <Route path='/movies/:id' component={MovieDetails} />
         <Route component={NotFoundPage} />
     </Switch>

@@ -1,13 +1,26 @@
-const express = require('express');
+// require.extensions['.scss'] = () => {};
+// require.extensions['.less'] = () => {};
+// require.extensions['.css'] = () => {};
+//
+// // require('@babel/register')({
+// //   babelrc: false,
+// //   presets: ['@babel/preset-env', '@babel/preset-react'],
+// //   plugins: ['@babel/plugin-proposal-class-properties'],
+// // });
+//
+// require('@babel/register')();
+//
+// // require( 'babel-register' )( {
+// //   presets: [ 'env' ],
+// // } );
+// //
+// require('./server');
 
-const app = express();
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", 'GET, POST, PUT, DELETE, OPTIONS');
-  next()
+const app = require('./app');
+
+const port = process.env.PORT || 8800;
+
+app.listen(port, () => {
+    console.info(`Express listening on port ${port}`); // eslint-disable-line
 });
 
-app.get('/', (req, res) => res.send('Well, hello there'));
-
-app.listen(2500);
